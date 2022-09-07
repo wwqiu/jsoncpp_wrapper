@@ -7,15 +7,15 @@ namespace DWQ {
 class JsonReader
 {
 public:
-	JsonReader() = default;
+    JsonReader() = default;
 
-	~JsonReader() = default;
+    ~JsonReader() = default;
 
     const Json::Value& Root() {
         return root_;
     }
 
-	bool ParseFromString(std::string json_content) {
+    bool ParseFromString(std::string json_content) {
         Json::CharReaderBuilder builder;
         const std::unique_ptr<Json::CharReader> reader(builder.newCharReader());
         const auto length = static_cast<int>(json_content.length());
@@ -24,7 +24,7 @@ public:
             return false;
         }
         return true;
-	}
+    }
 
     bool ParseFromFile(std::string filename) {
         std::ifstream ifs(filename);
